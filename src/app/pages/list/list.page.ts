@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonList } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service';
 
@@ -10,11 +11,27 @@ import { DataService } from '../../services/data.service';
 export class ListPage implements OnInit {
 
   usuarios: Observable<any>;
+  @ViewChild(IonList) ionList: IonList;
 
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
     this.usuarios = this.dataService.getUsuarios();
+  }
+
+  favorite(user : any){
+    console.log('favorite', user);
+    this.ionList.closeSlidingItems();
+  }
+
+  share(user : any){
+    console.log('share', user);
+    this.ionList.closeSlidingItems();
+  }
+
+  trash(user : any){
+    console.log('trash', user.name);
+    this.ionList.closeSlidingItems();
   }
 
 }
