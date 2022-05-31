@@ -16,9 +16,17 @@ export class ModalPage implements OnInit {
 
   async mostrarModal(){
     const modal = await this.modalCrtl.create({
-      component: ModalInfoPage
+      component: ModalInfoPage,
+      componentProps:{
+        nombre: 'Fernando',
+        pais: 'Costa Rica'
+      }
     });
-    return await modal.present();
+    await modal.present();
+
+    const {data} = await modal.onWillDismiss(); //{ data } entre llaves y propiedad es llamado desestructuracion
+    //const {data} = await modal.onDidDismiss();
+    console.log(data);
   }
 
 }

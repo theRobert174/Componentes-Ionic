@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Modal Page</ion-title>
+    <ion-title>{{nombre}} - {{pais}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,6 +8,10 @@
 
   <ion-button (click)="salirSinArgumentos()" expand="block" fill="clear" shape="round">
     Salir sin Argumentos
+  </ion-button>
+
+  <ion-button (click)="salirConArgumentos()" expand="block" fill="clear" shape="round">
+    Salir con Argumentos
   </ion-button>
 
 </ion-content>
