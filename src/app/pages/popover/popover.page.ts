@@ -14,17 +14,20 @@ export class PopoverPage implements OnInit {
   ngOnInit() {
   }
 
-  async presentPopover(/*ev: any*/) {
+  async presentPopover(ev: any) {
     const popover = await this.popoverCtrl.create({
       component: PopoverInfoComponent,
-      //event: ev,
+      event: ev,
       translucent: true,
       backdropDismiss: false
     });
     await popover.present();
+
+    const {data} = await popover.onWillDismiss();
+    console.log(data);
   
-    const { role } = await popover.onDidDismiss();
-    console.log('onDidDismiss resolved with role', role);
+    /*const { role } = await popover.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);*/
   }
 
 }
