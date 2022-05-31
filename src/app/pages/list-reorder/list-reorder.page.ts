@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+//import { IonReorderGroup } from '@ionic/angular';
 
 @Component({
   selector: 'app-list-reorder',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ListReorderPage implements OnInit {
 
   personajes: string[] = ['Aquaman','Superman','Batman','Mujer Maravilla',"Flash"];
+  //@ViewChild(IonReorderGroup) ionReorderGroup : IonReorderGroup;
+  toggle: boolean = true;
 
 
   constructor() { }
@@ -23,5 +26,16 @@ export class ListReorderPage implements OnInit {
     event.detail.complete();
     console.log(this.personajes);
   }
+
+  /*onClick(){
+    if(this.toggle){
+      this.ionReorderGroup.disabled = true;
+      this.toggle = !this.toggle;
+    }else{
+      this.ionReorderGroup.disabled = false;
+      this.toggle = !this.toggle;
+    }
+    
+  }*/
 
 }
