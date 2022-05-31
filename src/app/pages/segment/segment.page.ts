@@ -12,14 +12,21 @@ export class SegmentPage implements OnInit {
   constructor(private dataService : DataService) { }
 
   superHeroes: Observable<any>;
+  segmentVal: string;
 
   ngOnInit() {
     this.superHeroes = this.dataService.getHeroes();
   }
 
   segmentChanged(event){
-    console.log(event);
-
+    console.log(event.detail.value);
+    if(event.detail.value === 'todos'){
+      this.segmentVal = '';
+    }
+    else{
+      this.segmentVal = event.detail.value;
+    }
+    
   }
 
 }
