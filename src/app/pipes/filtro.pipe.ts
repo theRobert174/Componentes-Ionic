@@ -9,7 +9,7 @@ export class FiltroPipe implements PipeTransform {
     console.log(arreglo);
     console.log(texto);
 
-    if(texto = ''){
+    if(texto === ''){
       return arreglo;
     }
 
@@ -19,7 +19,9 @@ export class FiltroPipe implements PipeTransform {
 
     texto = texto.toLocaleLowerCase();
 
-    return arreglo.filter(item => item.title.toLowerCase().includes(texto));
+    return arreglo.filter(
+      item => item.title.toLowerCase().includes(texto)
+      );
   }
 
 }
